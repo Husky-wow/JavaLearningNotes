@@ -71,7 +71,7 @@ create database 库名;
 drop database 库名；
 
 -- 创建表
-create table if not exists 库名(
+create table if not exists 表名(
 	列名 数据类型 约束，
 	列名 数据类型 约束，
     ...
