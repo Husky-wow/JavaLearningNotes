@@ -1,0 +1,20 @@
+1. 获取 .class 文件编译后的路径
+
+	* Class.getResource("/").getPath();
+		- （JavaWeb项目） /F:/IdeaProjects/ThirdStageWeb/out/artifacts/ThirdStageWeb_war_exploded/WEB-INF/classes/  
+		- （普通Java项目）/F:/IdeaProjects/ThirdStage/out/production/ThirdStage/
+		- 获取到包的上一层
+			- 
+
+	* Class.getResource("/").getPath();
+		- （JavaWeb项目） /F:/IdeaProjects/ThirdStageWeb/out/artifacts/ThirdStageWeb_war_exploded/WEB-INF/classes/day0904/ 
+		- （普通Java项目）/F:/IdeaProjects/ThirdStage/out/production/ThirdStage/day0904/
+		- 获取到该类所在包层
+
+	* 注意最前边的反斜杠，如果要使用该路径生成File有两种方法：
+		- 通过字符串裁剪方法：
+			String path = Class.getResource("/").getPath().subString(1);
+			这样获取到的路径前方就没有反斜杠；
+
+		- 将URL转化为URI， Class.getResource("/")得到的是URL对象，调用其toURI方法转为URI对象，new File()可以接受该参数
+			URI uri = Class.getResource("/").toURI();
